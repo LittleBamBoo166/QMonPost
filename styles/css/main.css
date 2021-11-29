@@ -1,0 +1,119 @@
+:root {
+  /* default color */
+  --default: #f55139;
+  --hover: #b3311e;
+  --disable: #f78372;
+  /* secondary color */
+  --seDefault: #6c757d;
+  --seHover: #5a6268;
+  --seDisable: #b0b6ba;
+  /* danger color */
+  --danDefault: #9e3424;
+  --danHover: #801708;
+  --danDisable: #8f4439;
+  /* dark color */
+  --dakDefault: #1e1f22;
+  --dakHover: #141517;
+  --dakDisable: #666666;
+  /* light color */
+  --ligDefault: #f8f9fa;
+  --ligHover: #e2e6ea;
+  --ligDisable: #fafcfc;
+}
+header {
+  background-color: var(--dakDefault);
+}
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+input.search-1 {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+}
+input[type="search"].search-1 {
+  background-color: #fff;
+  height: 40px;
+  border: none;
+  outline: none;
+  padding: 0 25px;
+  /* border-radius: 25px 0 0 25px; */
+}
+input[type="submit"].search-1 {
+  position: relative;
+  left: -5px;
+  /* border-radius: 0 25px 25px 0; */
+  width: 120px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: rgb(245, 81, 57);
+  color: #fff;
+  transition: 0.5s;
+}
+/* input[type="submit"].search-1:hover {
+  background-color: rgb(30, 31, 34);
+  color: rgb(245, 81, 57);
+  box-shadow: inset 0 0 5px rgba(245, 81, 57, 1);
+} */
+main {
+  position: relative;
+  height: 700px;
+  background-image: url(../../images/cover.jpg);
+  background-size: contain;
+}
+div.lead-text-container {
+  width: 800px;
+  text-align: center;
+  /* background: rgba(255, 255, 255, 0.8); */
+  background: var(--dakDefault);
+  opacity: 0.8;
+  height: 200px;
+}
+.list-member {
+  background-color: var(--dakDefault);
+  border-color: rgba(255, 255, 255, 0.125);
+}
+.group-name {
+  font-weight: bolder;
+  font-size: 1.1rem;
+  color: var(--seDefault);
+}
+a.btn-login,
+a.btn-signup {
+  text-decoration: none;
+  overflow: hidden;
+  /* border-radius: 30px; */
+  width: 120px;
+}
+a.btn-login {
+  color: #fff;
+  background-color: var(--default);
+}
+a.btn-signup {
+  color: #fff;
+  background-color: var(--seDefault);
+}
+a.btn-login:hover {
+  color: #fff;
+  background-color: var(--hover);
+}
+a.btn-signup:hover {
+  color: #fff;
+  background-color: var(--seHover);
+}
+button.btn {
+  background-color: var(--default);
+  border-radius: 0;
+  color: #fff;
+  cursor: pointer;
+}
+button.btn:hover {
+  color: #fff;
+}
