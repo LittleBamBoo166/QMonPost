@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.png">
+    <title>QMonPost</title>
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="py-0 bg-light border-bottom">
+        <div class="container d-flex flex-wrap">
+            <!-- Nav link -->
+            <ul class="nav me-auto">
+                <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Trang
+                        chủ</a></li>
+            </ul>
+            <!-- Login / Sign up -->
+            <ul class="nav">
+                <li class="nav-item me-3">
+                    <a class="btn-login btn my-1" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        Đăng nhập</a></li>
+                <li class="nav-item">
+                    <a class="btn-signup btn my-1" data-bs-toggle="modal" data-bs-target="#signupModal">
+                        Đăng ký</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Login modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Modal header -->
+                <div class="modal-header">
+                    <h4 class="modal-title fw-bold">Đăng nhập</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form action="/action_page.php" class="row g-3 m-auto">
+                            <div class="col-12">
+                                <label for="email" class="form-label">Số điện thoại / Email</label>
+                                <input type="email" class="form-control" id="email"
+                                    placeholder="Nhập email hoặc số điện thoại" name="email">
+                            </div>
+                            <div class="col-12">
+                                <label for="pwd" class="form-label">Mật khẩu</label>
+                                <input type="password" class="form-control" id="pwd" placeholder="Nhập mật khẩu"
+                                    name="pswd">
+                            </div>
+                            <div class="col-6">
+                                <button class="btn" type="submit">Đăng
+                                    nhập</button>
+                            </div>
+                            <div class="col-6 form-check">
+                                <label class="form-check-label float-end">
+                                    <input class="form-check-input" type="checkbox" name="remember"> Nhớ mật khẩu
+                                </label>
+                            </div>                            
+                        </form>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sign up modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Modal header -->
+                <div class="modal-header">
+                    <h4 class="modal-title fw-bold">Đăng ký</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form class="row g-3 m-auto" style="width: 700px;" novalidate>
+                            <div class="col-md-4">
+                                <label for="ho" class="form-label">Họ</label>
+                                <input type="text" class="form-control" id="ho" placeholder="Nguyễn" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="ten" class="form-label">Tên</label>
+                                <input type="text" class="form-control" id="ten" placeholder="Quang Vũ" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="uname" class="form-label">Tên tài khoản</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                    <input type="text" class="form-control" id="uname"
+                                        aria-describedby="inputGroupPrepend" required>
+                                    <div class="invalid-feedback">
+                                        Vui lòng nhập tên người dùng.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="city" class="form-label">Tỉnh / Thành phố</label>
+                                <select class="form-select" id="city" required>
+                                    <option selected disabled value="">...</option>
+                                    <option>...</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Vui lòng lựa chọn tỉnh / thành phố.
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="district" class="form-label">Quận / Huyện</label>
+                                <select class="form-select" id="district" required>
+                                    <option selected disabled value="">...</option>
+                                    <option>...</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Vui lòng lựa chọn quận / huyện.
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="town" class="form-label">Xã / Phường</label>
+                                <select class="form-select" id="town" required>
+                                    <option selected disabled value="">...</option>
+                                    <option>...</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Vui lòng lựa chọn xã / phường.
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="address" class="form-label">Địa chỉ</label>
+                                <input type="text" class="form-control" id="address" placeholder="Số 02 Đường 05"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Vui lòng nhập địa chỉ.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="pass" class="form-label">Mật khẩu</label>
+                                <input type="password" class="form-control" id="pass" required>
+                                <div class="invalid-feedback">
+                                    Vui lòng nhập mật khẩu.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="repass" class="form-label">Nhập lại mật khẩu</label>
+                                <input type="password" class="form-control" id="repass" required>
+                                <div class="invalid-feedback">
+                                    Mật khẩu không chính xác. Vui lòng thử lại.
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                    <label class="form-check-label" for="invalidCheck">
+                                        Tôi đồng ý với các điều khoản sử dụng
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        Bạn phải đồng ý với các điều khoản sử dụng trước khi nhấn đăng ký tài khoản.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-signup" type="submit">Đăng ký</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header -->
+    <header class="p-3">
+        <div class="container">
+            <!-- Flex container -->
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <!-- Logo -->
+                <a href="/" class="d-flex me-auto"><img src="images/logo3.png" alt="" width="300px"></a>
+                <!-- Look up by order code -->
+                <form action="POST" class="">
+                    <input type="search" class="search-1" name="" id="searchModal" placeholder="Nhập mã đơn hàng ...">
+                    <input type="submit" class="search-1" name="" value="Tra cứu">
+                </form>
+            </div>
+        </div>
+    </header>
+    <!-- Search modal -->
+    <div class="container">
+        <div class="justify-content-md-center ">
+            <form class="row g-3 needs-validation m-auto" style="width: 920px;" novalidate>
+                <nav class="navbar navbar-light bg-white ">
+                    <p class="h2 text-center" style="font-family: Times New Roman,Times, serif;"><br>Đơn hàng #231GHE34</p>
+                </nav>
+                <hr style="height:2px;border-width:200px;color: #B3311E;background-color:#B3311E">
+            </form>
+            </div> 
+            <form class="row g-3 needs-validation m-auto" style="width: 1200px;" novalidate>
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-4">
+                            <label for="nguoigui"class="form-label">Người gửi</label>
+                            <input type="text" class="form-control" id="tennguoigui" placeholder="Tên người gửi....">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="nguoigui"class="form-label">Người nhận</label>
+                            <input type="text" class="form-control" id="tennguoigui" placeholder="Tên người nhận ....">
+                        </div>
+                    </div>
+                </form>
+                <form class="row g-3 needs-validation m-auto" style="width: 1200px;" novalidate>
+                    <div class="row justify-content-md-center">
+                            <div class="col-md-4">
+                                <label for="address"class="form-label"><br>Địa chỉ người gửi</label>
+                                <input type="text" class="form-control" id="diachi" placeholder="Địa chỉ người gửi....">
+                            </div> 
+                            <div class="col-md-4">
+                                <label for="address"class="form-label"><br>Địa chỉ người nhận</label>
+                                <input type="text" class="form-control" id="diachi" placeholder="Địa chỉ người nhận....">
+                            </div>
+                        </div>
+                </form>
+                <form class="row g-3 needs-validation m-auto" style="width: 1200px;" novalidate>
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-4">
+                            <label for="number"class="form-label"><br>Số điện thoại người gửi</label>
+                            <input type="tel" class="form-control" id="sdt" placeholder="Số điện thoại người gửi....">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="number"class="form-label"><br>Số điện thoại người nhận</label>
+                            <input type="tel" class="form-control" id="sdtngnhan" placeholder="Số điện thoại người nhận....">
+                        </div>
+                    </div>
+                </form>
+                <!---->
+                <form class="row g-3 needs-validation m-auto" style="width: 1200px;" novalidate>
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <label for="tgnhan"class="form-label"><br>Thời gian phát hàng mong muốn</label>
+                            <input type="time" class="form-control" id="tgnhan">
+                        </div>
+                                <div class="col-md-4">
+                                    <label for="ngtracuoc"class="form-label"><br>Yêu cầu khi giao hàng</label>
+                                    <div class="input-group">  
+                                        <div class="col-md-6 form-check-inline" >
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rd_giao1" value="option1"required>
+                                            <label class="form-check-label" for="inlineRadio1">Cho khách xem hàng</label>
+                                        </div>
+                                        <div class="col-md-12 form-check-inline" >
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rd_giao2" value="option2"required>
+                                            <label class="form-check-label" for="inlineRadio1">Không cho khách xem hàng</label>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                    </form>
+                <!---->                        
+                <form class="row g-3 needs-validation m-auto mb-5" style="width: 810px;" novalidate>
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-12">
+                                <label for="ngtracuoc"class="form-label">Người trả cước</label>
+                                <div class="input-group">   
+                                    <div class="col-md-3 form-check-inline" >
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rd_gui" value="option1"required>
+                                        <label class="form-check-label" for="inlineRadio1">Người gửi</label>
+                                    </div>
+                                    <div class="col-md-3 form-check-inline" >
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rd_nhan" value="option2"required>
+                                        <label class="form-check-label" for="inlineRadio1">Người nhận</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="ngtracuoc"class="form-label"><br>Yêu cầu khi lấy hàng</label>
+                                    <div class="input-group">    
+                                        <div class="col-md-3 form-check-inline" >
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rd_tainha" value="option1"required>
+                                            <label class="form-check-label" for="inlineRadio1">Đến lấy hàng tại nhà</label>
+                                        </div>
+                                        <div class="col-md-3 form-check-inline" >
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rd_taibuucuc" value="option2"required>
+                                            <label class="form-check-label" for="inlineRadio1">Gửi tại bưu cục</label>
+                                        </div>
+                                    </div> 
+                                </div>
+                                </div>                 
+                                    <div class="form-group col-md-12">
+                                        <label for="comment"><br>Các yêu cầu khác:</label>
+                                        <textarea class="form-control" rows="3" id="txtyeucau"></textarea>
+                                  </div>
+                                </form>   
+                                  </div>
+                                  </div>
+                               
+
+    <!-- Search modal --> 
+    <!-- Footer -->
+    <footer class="container-fluid" style="background-color: rgb(30, 31, 34);">
+        <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} g-3">
+            <div class="col-6">
+                <a href="#"><img src="images/logo2.png" alt="QMonPost" class="d-block mx-auto"
+                        style="width: 400px;"></a>
+            </div>
+            <div class="col-3 text-white-50">
+                <ul class="list-group list-group-flush mt-3"><span class="group-name">NHÓM QMON</span>
+                    <li class="list-group-item list-member text-white-50">Trần Thị Phương Nhi</li>
+                    <li class="list-group-item list-member text-white-50">Nguyễn Thành Nhanh</li>
+                </ul>
+            </div>
+            <div class="col-3 text-white-50">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-member text-white-50">Phan Hữu Tường</li>
+                    <li class="list-group-item list-member text-white-50">Nguyễn Thị Thanh Hưng</li>
+                    <li class="list-group-item list-member text-white-50">Nguyễn Thị Phi Thương</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
